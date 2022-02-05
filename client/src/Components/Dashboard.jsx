@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchFilter from './SearchFilter'
 
 import {useState} from 'react'
 

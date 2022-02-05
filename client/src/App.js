@@ -14,7 +14,7 @@ function App() {
       <Header />
       <div className='app-body'>
         <Dashboard appointments={appointments}/>
-        <AppointmentForm />
+        <AppointmentForm appointments={appointments} setAppointments={setAppointments}/>
       </div>
     </div>
   );
