@@ -8,7 +8,14 @@ import {useState, useEffect} from 'react'
 
 function App() {
 
-  const [appointments, setAppointments] = useState(null)
+  const [appointments, setAppointments] = useState([])
+
+  const displayAppointments = () => {
+    console.log(appointments)
+  }
+  useEffect(()=> {
+    // displayAppointments()
+  })
   return (
     <div className="App">
       <Header />
