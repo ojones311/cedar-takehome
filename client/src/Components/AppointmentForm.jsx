@@ -4,7 +4,13 @@ const AppointmentForm = () => {
     return (
         <div className='main-form'>
             <form>
-                <input></input>
+                <input 
+                    type='text' 
+                    name='doctor' 
+                    id='docname' 
+                    placeholder='Doctor Name' 
+                    value={''}
+                />
             </form>
         </div>
     )
