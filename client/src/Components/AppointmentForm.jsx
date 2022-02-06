@@ -12,7 +12,15 @@ const AppointmentForm = ({appointments, setAppointments}) => {
     const handleFormSubmission = (e) => {
         e.preventDefault()
         console.log('submitted')
-        // setAppointments(appointments.push(1))
+        const newAppointment = {
+            doctorName: doctorName,
+            patientName: patientName,
+            phoneNumber: phoneNumber,
+            email: email,
+            reasonForVisit: reasonForVisit,
+            deleted: false
+        }
+        setAppointments([...appointments, newAppointment])
     }
     return (
         <div className='main-form'>

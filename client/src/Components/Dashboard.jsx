@@ -1,14 +1,17 @@
 import React from 'react'
 import SearchFilter from './SearchFilter'
-
+import AppointmentCard from './AppointmentCard'
 import {useState} from 'react'
 
-const Dashboard = () => {
+const Dashboard = ({appointments}) => {
 
-    const [appointments, setAppointments] = useState(null)
+    // const [appointments, setAppointments] = useState(null)
     return (
         <div className='main-body'>
-            <p>test</p>
+            <SearchFilter />
+            {appointments.length > 0 && appointments.map((card) => {
+                <AppointmentCard card={card} />
+            })}
         </div>
     )
 }
