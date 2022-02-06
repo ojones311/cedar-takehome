@@ -1,17 +1,25 @@
 import React from 'react'
 import SearchFilter from './SearchFilter'
 import AppointmentCard from './AppointmentCard'
-import {useState} from 'react'
 
 const Dashboard = ({appointments}) => {
 
-    // const [appointments, setAppointments] = useState(null)
     return (
         <div className='main-body'>
             <SearchFilter />
-            {appointments.length > 0 && appointments.map((card) => {
-                <AppointmentCard card={card} />
-            })}
+            {appointments && appointments.map((card) => (
+                <>
+                    <AppointmentCard
+                        appointments={appointments} 
+                        doctorName={card.doctorName}
+                        patientName = {card.patientName}
+                        phoneNumber = {card.phoneNumber}
+                        email = {card.email}
+                        reasonForVisit = {card.reasonForVisit}
+                        deleted = {card.deleted}
+                    />
+                </>
+            ))}
         </div>
     )
 }

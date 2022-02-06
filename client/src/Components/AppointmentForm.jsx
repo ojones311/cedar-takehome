@@ -9,10 +9,19 @@ const AppointmentForm = ({appointments, setAppointments}) => {
     const [email, setEmail] = useState('')
     const [reasonForVisit, setReasonForVisit] = useState('')
 
+    const clearForm = () => {
+        setDoctorName('')
+        setPatientName('')
+        setPhoneNumber('')
+        setEmail('')
+        setReasonForVisit('')
+    }
+
     const handleFormSubmission = (e) => {
         e.preventDefault()
         console.log('submitted')
         const newAppointment = {
+            // id: ,
             doctorName: doctorName,
             patientName: patientName,
             phoneNumber: phoneNumber,
@@ -21,6 +30,7 @@ const AppointmentForm = ({appointments, setAppointments}) => {
             deleted: false
         }
         setAppointments([...appointments, newAppointment])
+        clearForm()
     }
     return (
         <div className='main-form'>
