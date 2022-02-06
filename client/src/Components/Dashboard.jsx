@@ -2,7 +2,7 @@ import React from 'react'
 import SearchFilter from './SearchFilter'
 import AppointmentCard from './AppointmentCard'
 
-const Dashboard = ({appointments, setAppointments}) => {
+const Dashboard = ({appointments, setAppointments, allowEdit, setAllowEdit}) => {
 
     return (
         <div className='main-body'>
@@ -12,6 +12,8 @@ const Dashboard = ({appointments, setAppointments}) => {
                     <AppointmentCard
                         setAppointments={setAppointments}
                         appointments={appointments} 
+                        allowEdit ={allowEdit}
+                        setAllowEdit={setAllowEdit}
                         id={card.id}
                         doctorName={card.doctorName}
                         patientName = {card.patientName}

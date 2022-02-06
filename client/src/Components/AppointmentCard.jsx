@@ -1,9 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-const AppointmentCard = ({setAppointments, appointments, id, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted}) => {
+const AppointmentCard = ({setAppointments, appointments, id, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted,allowEdit,setAllowEdit}) => {
+
+    const editAppointment = () => {
+        setAllowEdit(!allowEdit)
+    }
     
-    const editAppointmentCard = () => {
-        console.log('edited')
+    const handleEditSubmission = () => {
+        console.log('trying')
     }
 
     const deleteAppointmentCard = (id) => {
@@ -19,8 +23,19 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
             <p>{phoneNumber}</p>
             <p>{email}</p>
             <p>{reasonForVisit}</p>
-            <button onClick={editAppointmentCard}>Edit</button>
+            <button onClick={editAppointment}>Edit</button>
             <button onClick={() => deleteAppointmentCard(id)}>Delete</button>
+
+            {allowEdit && 
+            <form onSubmit={handleEditSubmission}>
+                <input />
+                <input />
+                <input />
+                <input />
+                <button>Submit</button>
+            </form>
+            
+            }
         </div>
     )
 }
