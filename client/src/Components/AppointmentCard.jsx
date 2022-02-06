@@ -12,14 +12,14 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
     const editAppointment = () => {
         setAllowEdit(!allowEdit)
     }
-    // const updateAppointment = (appt,id) => {
-    //     let index = appointments.findIndex(card => card.id === id)
-    //     setAppointments({...appointments, appt})
-    // }
+    const updateAppointment = (appt,id) => {
+        let index = appointments.findIndex(card => card.id === id)
+        const newApptList = [...appointments] 
+        newApptList[index] = appt
+        setAppointments(newApptList)
+    }
     const handleEditSubmission = (e) => {
-        console.log('trying')
         e.preventDefault()
-        console.log(appointments)
         let editedAppointment = {
             id: id,
             doctorName: newDoctorName,
@@ -27,8 +27,9 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
             patientName: newPatientName,
             phoneNumber: newPhoneNumber,
             reasonForVisit: newReasonForVisit,
+            deleted: false
         }
-        // updateAppointment(editedAppointment, editedAppointment.id)
+        updateAppointment(editedAppointment, editedAppointment.id)
     }
 
     const deleteAppointmentCard = (id) => {
@@ -39,11 +40,11 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
     }
     return (
         <div className='appt-card'>
-            <p>{doctorName}</p>
-            <p>{patientName}</p>
-            <p>{phoneNumber}</p>
-            <p>{email}</p>
-            <p>{reasonForVisit}</p>
+            <p>{newDoctorName}</p>
+            <p>{newPatientName}</p>
+            <p>{newPhoneNumber}</p>
+            <p>{newEmail}</p>
+            <p>{newReasonForVisit}</p>
             <button onClick={editAppointment}>Edit</button>
             <button onClick={() => deleteAppointmentCard(id)}>Delete</button>
 
