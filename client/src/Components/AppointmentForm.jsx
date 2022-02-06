@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
 
+const {nanoid} = require('nanoid')
+
 const AppointmentForm = ({appointments, setAppointments}) => {
 
     const [doctorName, setDoctorName] = useState('')
@@ -21,7 +23,7 @@ const AppointmentForm = ({appointments, setAppointments}) => {
         e.preventDefault()
         console.log('submitted')
         const newAppointment = {
-            // id: ,
+            id: nanoid(4),
             doctorName: doctorName,
             patientName: patientName,
             phoneNumber: phoneNumber,

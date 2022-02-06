@@ -1,13 +1,16 @@
 import React from 'react'
 
-const AppointmentCard = ({appointments, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted}) => {
+const AppointmentCard = ({setAppointments, appointments, id, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted}) => {
     
     const editAppointmentCard = () => {
         console.log('edited')
     }
 
-    const deleteAppointmentCard = () => {
-        console.log('deleted')
+    const deleteAppointmentCard = (id) => {
+        console.log('deleted',id)
+        const remainingAppointments = appointments.filter(card => id !== card.id)
+        deleted = true
+        setAppointments(remainingAppointments)
     }
     return (
         <div className='appt-card'>
@@ -17,7 +20,7 @@ const AppointmentCard = ({appointments, doctorName, patientName, phoneNumber, em
             <p>{email}</p>
             <p>{reasonForVisit}</p>
             <button onClick={editAppointmentCard}>Edit</button>
-            <button onClick={deleteAppointmentCard}>Delete</button>
+            <button onClick={() => deleteAppointmentCard(id)}>Delete</button>
         </div>
     )
 }
