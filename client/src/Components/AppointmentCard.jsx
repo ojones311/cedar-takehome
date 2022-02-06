@@ -30,6 +30,7 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
             deleted: false
         }
         updateAppointment(editedAppointment, editedAppointment.id)
+        setAllowEdit(!allowEdit)
     }
 
     const deleteAppointmentCard = (id) => {

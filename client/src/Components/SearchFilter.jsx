@@ -1,9 +1,15 @@
 import React from 'react'
 
-const SearchFilter = () => {
+const SearchFilter = ({input:keyword, onChange:setKeyword}) => {
     return (
-        <div>
-            <input type='text' placeholder={'Filter by doctor name'}/>
+        <div className='search-filter'>
+            <input 
+                id='input' 
+                type='text' 
+                placeholder={'Filter by Dr name'} 
+                value={keyword} 
+                onChange={(e) => setKeyword(e.target.value)}
+            />
         </div>
     )
 }

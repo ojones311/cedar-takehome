@@ -1,13 +1,31 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import SearchFilter from './SearchFilter'
 import AppointmentCard from './AppointmentCard'
 
 const Dashboard = ({appointments, setAppointments}) => {
 
+    const [input, setInput] = useState('')
+    const [filteredAppts, setFilteredAppts] = useState(appointments)
+
+    const filterAppointments = (input) => {
+        let filteredList = appointments.filter((card) => {
+            return card.doctorName.toLowerCase().includes(input)
+        })
+        setInput(input)
+        console.log(filteredList)
+        if(filteredAppts.length < 1){
+        }
+        setFilteredAppts(filteredList)
+    }
+
+    // useEffect(() => {
+    //     filterAppointments(appointments)
+    // },[])
     return (
         <div className='main-body'>
-            <SearchFilter />
-            {appointments && appointments.filter(elem => !elem.deleted).map((card) => (
+            <SearchFilter input={input} onChange={filterAppointments}/>
+            
+            {filteredAppts && filteredAppts.filter(elem => !elem.deleted).map((card) => (
                 <>
                     <AppointmentCard
                         setAppointments={setAppointments}
