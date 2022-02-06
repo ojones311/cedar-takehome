@@ -9,14 +9,13 @@ import {useState, useEffect} from 'react'
 function App() {
 
   const [appointments, setAppointments] = useState([])
-  const [allowEdit, setAllowEdit] = useState(false)
 
   return (
     <div className="App">
       <Header />
       <div className='app-body'>
-        <Dashboard appointments={appointments} setAppointments={setAppointments} allowEdit={allowEdit} setAllowEdit={setAllowEdit}/>
-        <AppointmentForm appointments={appointments} setAppointments={setAppointments} allowEdit={allowEdit} setAllowEdit={setAllowEdit}/>
+        <Dashboard appointments={appointments} setAppointments={setAppointments} />
+        <AppointmentForm appointments={appointments} setAppointments={setAppointments} />
       </div>
     </div>
   );

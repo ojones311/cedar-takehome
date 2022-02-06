@@ -3,7 +3,7 @@ import {useState} from 'react'
 
 const {nanoid} = require('nanoid')
 
-const AppointmentForm = ({appointments, setAppointments, allowEdit, setAllowEdit}) => {
+const AppointmentForm = ({appointments, setAppointments}) => {
 
     const [doctorName, setDoctorName] = useState('')
     const [patientName, setPatientName] = useState('')
@@ -35,11 +35,7 @@ const AppointmentForm = ({appointments, setAppointments, allowEdit, setAllowEdit
         setAppointments([...appointments, newAppointment])
         clearForm()
     }
-    const handleEditForm = () => {
-        if(allowEdit){
-            
-        }
-    }
+    
     return (
         <div className='main-form'>
             <form onSubmit={handleFormSubmission}>

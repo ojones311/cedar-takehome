@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 
-const AppointmentCard = ({setAppointments, appointments, id, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted,allowEdit,setAllowEdit}) => {
+const AppointmentCard = ({setAppointments, appointments, id, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted}) => {
 
+    const [allowEdit,setAllowEdit] = useState(false)
     const [newDoctorName, setNewDoctorName] = useState(doctorName)
     const [newPatientName, setNewPatientName] = useState(patientName)
     const [newPhoneNumber, setNewPhoneNumber] = useState(phoneNumber)
@@ -11,7 +12,10 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
     const editAppointment = () => {
         setAllowEdit(!allowEdit)
     }
-
+    // const updateAppointment = (appt,id) => {
+    //     let index = appointments.findIndex(card => card.id === id)
+    //     setAppointments({...appointments, appt})
+    // }
     const handleEditSubmission = (e) => {
         console.log('trying')
         e.preventDefault()
@@ -19,14 +23,12 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
         let editedAppointment = {
             id: id,
             doctorName: newDoctorName,
-            email: '',
-            patientName:'',
-            phoneNumber:'',
-            reasonForVisit:'',
+            email: newEmail,
+            patientName: newPatientName,
+            phoneNumber: newPhoneNumber,
+            reasonForVisit: newReasonForVisit,
         }
-        // setAllowEdit(!allowEdit)
-        // setAppointments([...appointments, editedAppointment])
-        // appointments.splice(1,editAppointment)
+        // updateAppointment(editedAppointment, editedAppointment.id)
     }
 
     const deleteAppointmentCard = (id) => {
