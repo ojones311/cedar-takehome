@@ -10,7 +10,7 @@ const Dashboard = ({appointments, setAppointments}) => {
 
     const filterAppointments = (input) => {
         let filteredList = appointments.filter((card) => {
-            return card.doctorName.toLowerCase().includes(input)
+            return card.doctorName.toLowerCase().includes(input.toLowerCase())
         })
         setSearchTerm(input)
         setFilteredAppts(filteredList)

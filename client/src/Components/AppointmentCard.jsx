@@ -12,6 +12,13 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
     const editAppointment = () => {
         setAllowEdit(!allowEdit)
     }
+    const clearInputs = () => {
+        setNewDoctorName(doctorName)
+        setNewPatientName(patientName)
+        setNewPhoneNumber(phoneNumber)
+        setNewEmail(email)
+        setNewReasonForVisit(reasonForVisit)   
+    }
     const updateAppointment = (appt,id) => {
         let index = appointments.findIndex(card => card.id === id)
         const newApptList = [...appointments] 
@@ -31,6 +38,7 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
         }
         updateAppointment(editedAppointment, editedAppointment.id)
         setAllowEdit(!allowEdit)
+        clearInputs()
     }
 
     const deleteAppointmentCard = (id) => {
