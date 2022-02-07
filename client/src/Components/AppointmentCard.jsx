@@ -61,8 +61,10 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
             <button onClick={() => deleteAppointmentCard(id)}>Delete</button>
 
             {allowEdit && 
-            <form onSubmit={handleEditSubmission}>
+            <form id='edit-appt' onSubmit={handleEditSubmission}>
                 <input 
+                    type='text'
+                    id='docname'
                     name={'edit-docname'}
                     placeholder={'doctorName'}
                     value={newDoctorName}

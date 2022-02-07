@@ -24,7 +24,7 @@ const Dashboard = ({appointments, setAppointments}) => {
     },[searchTerm])
     return (
         <div className='main-body'>
-            <h3>Search</h3>
+            <h3>Appointments</h3>
             <SearchFilter onChange={filterAppointments} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
             <div className='appointments'>
                 {
