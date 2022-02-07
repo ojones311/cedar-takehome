@@ -4,41 +4,57 @@ import AppointmentCard from './AppointmentCard'
 
 const Dashboard = ({appointments, setAppointments}) => {
 
-    const [input, setInput] = useState('')
-    const [filteredAppts, setFilteredAppts] = useState(appointments)
+    // const [input, setInput] = useState('')
+    const [searchTerm, setSearchTerm] = useState('')
+    const [filteredAppts, setFilteredAppts] = useState([])
 
     const filterAppointments = (input) => {
         let filteredList = appointments.filter((card) => {
             return card.doctorName.toLowerCase().includes(input)
         })
-        setInput(input)
-        console.log(filteredList)
-        if(filteredAppts.length < 1){
-        }
+        setSearchTerm(input)
         setFilteredAppts(filteredList)
+        console.log(filteredAppts)
     }
+    useEffect(()=> { 
+        filterAppointments(searchTerm)
 
-    // useEffect(() => {
-    //     filterAppointments(appointments)
-    // },[])
+    },[searchTerm])
     return (
         <div className='main-body'>
-            <SearchFilter input={input} onChange={filterAppointments}/>
-            
-            {filteredAppts && filteredAppts.filter(elem => !elem.deleted).map((card) => (
-                <>
-                    <AppointmentCard
-                        setAppointments={setAppointments}
-                        appointments={appointments} 
-                        id={card.id}
-                        doctorName={card.doctorName}
-                        patientName = {card.patientName}
-                        phoneNumber = {card.phoneNumber}
-                        email = {card.email}
-                        reasonForVisit = {card.reasonForVisit}
-                        deleted = {card.deleted}
-                    />
+            <SearchFilter onChange={filterAppointments} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+
+            {
+                searchTerm && filteredAppts.filter(elem => !elem.deleted).map(card => (
+                    <>
+                        <AppointmentCard
+                            setAppointments={setAppointments}
+                            appointments={appointments} 
+                            id={card.id}
+                            doctorName={card.doctorName}
+                            patientName = {card.patientName}
+                            phoneNumber = {card.phoneNumber}
+                            email = {card.email}
+                            reasonForVisit = {card.reasonForVisit}
+                            deleted = {card.deleted}
+                        />
                 </>
+            ))}
+            {
+                appointments.length > 0 && !searchTerm && appointments.filter(elem => !elem.deleted).map((card) => (
+                    <>
+                        <AppointmentCard
+                            setAppointments={setAppointments}
+                            appointments={appointments} 
+                            id={card.id}
+                            doctorName={card.doctorName}
+                            patientName = {card.patientName}
+                            phoneNumber = {card.phoneNumber}
+                            email = {card.email}
+                            reasonForVisit = {card.reasonForVisit}
+                            deleted = {card.deleted}
+                        />
+                    </>
             ))}
         </div>
     )

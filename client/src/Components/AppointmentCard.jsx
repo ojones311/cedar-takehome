@@ -35,17 +35,19 @@ const AppointmentCard = ({setAppointments, appointments, id, doctorName, patient
 
     const deleteAppointmentCard = (id) => {
         console.log('deleted',id)
+        console.log(appointments)
         const remainingAppointments = appointments.filter(card => id !== card.id)
-        deleted = true
+        // deleted = true
+        console.log(remainingAppointments)
         setAppointments(remainingAppointments)
     }
     return (
         <div className='appt-card'>
-            <p>{newDoctorName}</p>
-            <p>{newPatientName}</p>
-            <p>{newPhoneNumber}</p>
-            <p>{newEmail}</p>
-            <p>{newReasonForVisit}</p>
+            <p>{doctorName}</p>
+            <p>{patientName}</p>
+            <p>{phoneNumber}</p>
+            <p>{email}</p>
+            <p>{reasonForVisit}</p>
             <button onClick={editAppointment}>Edit</button>
             <button onClick={() => deleteAppointmentCard(id)}>Delete</button>
 
