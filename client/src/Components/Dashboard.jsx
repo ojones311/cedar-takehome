@@ -2,6 +2,8 @@ import React,{useEffect, useState} from 'react'
 import SearchFilter from './SearchFilter'
 import AppointmentCard from './AppointmentCard'
 
+import '../Styles/Dashboard.css'
+
 const Dashboard = ({appointments, setAppointments}) => {
 
     // const [input, setInput] = useState('')
@@ -22,6 +24,7 @@ const Dashboard = ({appointments, setAppointments}) => {
     },[searchTerm])
     return (
         <div className='main-body'>
+            <h3>Search</h3>
             <SearchFilter onChange={filterAppointments} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 
             {

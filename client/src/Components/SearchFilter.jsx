@@ -1,5 +1,7 @@
 import React from 'react'
 
+import '../Styles/SearchFilter.css'
+
 const SearchFilter = ({searchTerm, setSearchTerm}) => {
     return (
         <div className='search-filter'>

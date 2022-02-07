@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import '../Styles/AppointmentCard.css'
 
 const AppointmentCard = ({setAppointments, appointments, id, doctorName, patientName, phoneNumber, email, reasonForVisit,deleted}) => {
 

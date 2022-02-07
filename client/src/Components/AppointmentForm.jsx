@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
 
+import '../Styles/AppointmentForm.css'
+
 const {nanoid} = require('nanoid')
 
 const AppointmentForm = ({appointments, setAppointments}) => {

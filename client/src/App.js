@@ -12,8 +12,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className='app-body'>
+        <Header />
+        <div className='app-body'>
         <Dashboard appointments={appointments} setAppointments={setAppointments} />
         <AppointmentForm appointments={appointments} setAppointments={setAppointments} />
       </div>
