@@ -40,13 +40,13 @@ const AppointmentForm = ({appointments, setAppointments}) => {
     
     return (
         <div className='main-form'>
-            <form onSubmit={handleFormSubmission}>
+            <form id='appt-form' onSubmit={handleFormSubmission}>
                 <h3>Make Appointment</h3>
                 <input 
                     type='text' 
                     name='doctor' 
                     id='docname' 
-                    placeholder='Doctor Name'
+                    placeholder='  Doctor Name'
                     onChange = {(e) => setDoctorName(e.target.value)}
                     value={doctorName}
                 />
@@ -54,7 +54,7 @@ const AppointmentForm = ({appointments, setAppointments}) => {
                     type='text' 
                     name='patient' 
                     id='patientname' 
-                    placeholder='Patient Name'
+                    placeholder='  Patient Name'
                     onChange = {(e) => setPatientName(e.target.value)} 
                     value={patientName}
                 />
@@ -62,7 +62,7 @@ const AppointmentForm = ({appointments, setAppointments}) => {
                     type='text' 
                     name='phone' 
                     id='phone' 
-                    placeholder='Phone Number' 
+                    placeholder='  Phone Number' 
                     onChange = {(e) => setPhoneNumber(e.target.value)}
                     value={phoneNumber}
                 />
@@ -70,7 +70,7 @@ const AppointmentForm = ({appointments, setAppointments}) => {
                     type='text' 
                     name='email' 
                     id='email' 
-                    placeholder='Email' 
+                    placeholder='  Email' 
                     onChange = {(e) => setEmail(e.target.value)}
                     value={email}
                 />
@@ -86,7 +86,7 @@ const AppointmentForm = ({appointments, setAppointments}) => {
                     <option>{'Physical'}</option> 
                     <option>{'Referral'}</option>
                 </select>
-                <button>Submit</button>
+                <button id='submit-button'>Submit</button>
             </form>
         </div>
     )

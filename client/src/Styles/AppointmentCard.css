@@ -1,5 +1,11 @@
 .appt-card {
     width: 50%;
     margin: 0 auto;
-    border: 1px dotted grey;
+    border: 2px black;
+    background-color: #f5f5f5;
+    border-radius: 3%;
+}
+
+.appt-card:hover{
+    border: 1px dotted
 }
