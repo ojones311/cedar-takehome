@@ -1,0 +1,20 @@
+.appt-card {
+    width: 50%;
+    margin: 0 auto;
+    border: 2px black;
+    background-color: #f5f5f5;
+    border-radius: 5%;
+}
+
+.appt-card:hover{
+    border: 3px;
+}
+
+#edit-appt {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    font-size: inherit;
+}
+
+/* #input */
